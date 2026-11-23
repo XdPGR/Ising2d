@@ -1,16 +1,11 @@
-#include <iostream>
+#pragma once
+#include <fstream>
+#include <string>
 
-
-#include "./output_data.h"
-
-class Data_work
-{
+class Data_work {
+private:
+    static std::ofstream outFile;
 public:
-	static void normaliza_data();
-	static void updata_output_data();
-	static magnetic_output_data measure_magnetic();
-	static void output_data();
-	
-};
-
-#include "./data_work.cpp"
+    static void init(const std::string& filename);
+    static void update_output_data(int step, double energy);
+    static void close(); };
